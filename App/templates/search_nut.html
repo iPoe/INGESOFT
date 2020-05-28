@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block header%}
+<h1>Nutristory App</h1>
+<a href="{{ url_for('admin.homeAdmin') }}"><i class="fas fa-home"></i>Inicio</a>
+<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Salir</a>
+{% endblock %}
+
+{% block content %}
+<div class="login">
+  <h1>Ingrese el número de documento del nutricionista</h1>
+  <form action="{{ url_for('admin.search_nut') }}" method="post">
+    <label for="idNut">
+      <i class="fas fa-id-badge"></i>
+    </label>
+    <input type="text" name="idNut" placeholder="Número Documento de Identidad" id="idNut" required>
+    <div class="msg">{{ msg }}</div>
+    <input type="submit" value="Buscar">
+  </form>
+</div>
+{% endblock %}
